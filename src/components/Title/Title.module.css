@@ -1,0 +1,24 @@
+.title {
+  color: var(--text);
+  font-weight: 500;
+  font-size: 32px;
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+.big {
+  font-size: 48px;
+  margin-bottom: 24px;
+}
+
+.gradient {
+  background: linear-gradient(180deg, #ffffff 0%, #ffc2c2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.noMargin {
+  margin: 0;
+}

@@ -39,11 +39,50 @@ code {
 :root {
   /* colors */
   --background: #121212;
+  --background-rgb: 18, 18, 18;
   --card: #212121;
   --text: #fff;
   --text-second: #9b9b9b;
   --accent: #3a85dd;
 
-  /* sizes */
+  /* values */
   --header-height: 80px;
+  --header-index: 1000;
+  --container-width: 1200px;
+}
+
+.container {
+  max-width: var(--container-width);
+
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 24px;
+}
+
+.flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-1 {
+  gap: 4px;
+}
+
+.gap-2 {
+  gap: 8px;
+}
+
+.gap-3 {
+  gap: 12px;
+}
+
+a {
+  text-decoration: none;
 }

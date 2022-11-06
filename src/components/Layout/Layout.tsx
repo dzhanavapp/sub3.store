@@ -1,13 +1,18 @@
-import { FC, PropsWithChildren } from "react";
+import clsx from "clsx";
+import { FC } from "react";
+import { Outlet } from "react-router-dom";
+
 import Header from "../Header/Header";
 import classes from "./Layout.module.css";
 
-const Layout: FC<PropsWithChildren> = ({ children }) => {
+const Layout: FC = () => {
   return (
-    <div className={classes.container}>
+    <>
       <Header />
-      <main>{children}</main>
-    </div>
+      <main className={clsx(classes.content, "container")}>
+        <Outlet />
+      </main>
+    </>
   );
 };
 

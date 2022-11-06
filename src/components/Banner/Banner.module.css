@@ -1,0 +1,129 @@
+.banner {
+  height: 300px;
+  background-color: #181818;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+
+  animation: appeared 1s forwards ease-out;
+}
+
+@keyframes appeared {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.sphere {
+  position: absolute;
+  border-radius: 100%;
+}
+
+.sphereBig {
+  width: 945px;
+  height: 945px;
+
+  background: #000000;
+  box-shadow: 0px -30px 244px #fb1d6d, inset 0px 4px 118px #d170ff;
+
+  top: 48px;
+  right: -20%;
+
+  animation: floatSphereBig 5s alternate ease-in-out infinite;
+}
+
+@keyframes floatSphereBig {
+  from {
+    top: 48px;
+    right: -20%;
+  }
+
+  to {
+    top: 30%;
+    right: -25%;
+  }
+}
+
+.sphereSmall {
+  width: 425px;
+  height: 425px;
+
+  background: #000000;
+  box-shadow: 0px -30px 240px rgba(29, 171, 251, 0.8),
+    inset 0px 4px 118px #fcff70;
+
+  top: 80%;
+  right: 400px;
+
+  animation: floatSphereSmall 5s alternate ease-in-out infinite;
+}
+
+@keyframes floatSphereSmall {
+  from {
+    top: 80%;
+    right: 400px;
+  }
+
+  to {
+    top: 60%;
+    right: 300px;
+  }
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-70%, -65%);
+}
+
+.text {
+  font-size: 24px;
+  color: #bbbbbb;
+
+  position: absolute;
+  left: 15%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 1120px) {
+  .text {
+    display: none;
+  }
+
+  .title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .sphereBig {
+    width: 600px;
+    height: 600px;
+
+    top: 55%;
+    right: -10%;
+
+    animation: floatSphereBigMobile 5s alternate ease-in-out infinite;
+  }
+}
+
+@keyframes floatSphereBigMobile {
+  from {
+    top: 55%;
+    right: -10%;
+  }
+
+  to {
+    top: 65%;
+    right: -20%;
+  }
+}
