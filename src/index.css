@@ -1,13 +1,49 @@
+@font-face {
+  font-family: "GTEestiPro";
+  src: local("GTEestiPro"),
+    url("./fonts/GTEestiPro/gteestiprodisplay_regular.otf") format("opentype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "GTEestiPro";
+  src: local("GTEestiPro"),
+    url("./fonts/GTEestiPro/gteestiprodisplay_thin.otf") format("opentype");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "GTEestiPro";
+  src: local("GTEestiPro"),
+    url("./fonts/GTEestiPro/gteestiprodisplay_bold.otf") format("opentype");
+  font-weight: 600;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: GTEestiPro, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--text);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+:root {
+  /* colors */
+  --background: #121212;
+  --card: #212121;
+  --text: #fff;
+  --text-second: #9b9b9b;
+  --accent: #3a85dd;
+
+  /* sizes */
+  --header-height: 80px;
 }
