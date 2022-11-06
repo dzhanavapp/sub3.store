@@ -1,0 +1,26 @@
+.tag {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.tag b {
+  font-size: 38px;
+}
+
+.content p {
+  margin: 24px 0;
+  font-size: 20px;
+  color: #f5f5f5;
+  line-height: 150%;
+}
+
+.content h2 {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 110%;
+
+  letter-spacing: -0.01em;
+
+  color: #ffffff;
+}

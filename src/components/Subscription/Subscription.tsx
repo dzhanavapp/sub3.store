@@ -11,17 +11,18 @@ type Props = {
 };
 
 const Subscription: FC<Props> = ({ service, noManage = false }) => {
-  const { name, description, icon } = service;
+  const { name, description, icon, id } = service;
 
   const handleUnsubscribe = () => {
     console.log("unsubscrive");
   };
 
   const token = BASE_TOKEN;
+
   return (
     <div className={classes.card}>
       <img src={icon} alt={name} className={classes.icon} />
-      <Link to="/coin">
+      <Link to={`/service/${id}`}>
         <div>
           <div className={classes.name}>{name}</div>
           <div className={classes.description} title={description}>

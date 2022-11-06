@@ -1,0 +1,33 @@
+.article {
+  display: flex;
+}
+
+.back {
+  position: fixed;
+  top: 32px;
+  left: 32px;
+}
+
+.image {
+  height: 100vh;
+  width: 45%;
+  object-fit: cover;
+  position: sticky;
+  top: 0;
+}
+
+.content {
+  padding: 36px 32px;
+}
+
+@media screen and (max-width: 800px) {
+  .article {
+    flex-direction: column;
+  }
+
+  .image {
+    height: 500px;
+    width: 100%;
+    position: static;
+  }
+}
