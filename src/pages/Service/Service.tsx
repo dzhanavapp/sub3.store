@@ -39,6 +39,8 @@ const Service = () => {
   // const { data, error, isLoading, refetch } = useContractRead(config);
 
   const handleBuy = () => {
+    console.log("buy");
+
     if (!addSubscription) return;
     addSubscription(
       "0x894899a494809e31bb94b76392CA1CD1b4cA0993",
