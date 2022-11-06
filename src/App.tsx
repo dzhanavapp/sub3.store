@@ -2,6 +2,7 @@ import Layout from "./components/Layout/Layout";
 import HomePage from "./pages/Home/Home";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import AccountPage from "./pages/Account/Account";
+import Service from "./pages/Service/Service";
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
 
           <Route path="*" element={<h1>Error 404</h1>} />
         </Route>
+
+        <Route path="service/:id" element={<Service />} />
       </Routes>
     </BrowserRouter>
   );
