@@ -82,7 +82,7 @@ export default function HomePage() {
         />
 
         <Article
-          title="how to create wallet"
+          title="how to create wallets"
           tag="tutorial"
           articleId={1}
           image="https://s3-alpha-sig.figma.com/img/c564/689a/327e41c58d849faa4cda6de8b85b127e?Expires=1668384000&Signature=S3VQU8cRpE-GJ0xnDz6e4k4GbX15YY6t71uBUxRSyNs3H49yKlPk2Crt0wPXSfMPY9EKK6g1R1BJbj-k6ZgS6bVW1r0ChxeF4C~0xx5rG8yRqUrmQEsdCD1EYj2SiNVOQilMZb5E6lTeTALQk6QH7tjRH4IZBLVQio4d6aOCi7rdU4gvVNvwNH65bDE95G2O3T47vTkbd~1ojokBqoXjYRK900EuCjxNRJwGQNzWvf8agcVHCe0neZsbFHz4aF1TlRTy~2MkPax8pU8Ks2lZA~XGQElmYruFkn8a9SHDRH69kaSliEGjXSs2KZeMUX1ZVP44qbxEioCmZL3cdH1v5Q__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
