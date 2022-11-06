@@ -1,3 +1,4 @@
+import { useAccount } from "@web3modal/react";
 import Article from "../../components/Article/Article";
 import Banner from "../../components/Banner";
 import Section from "../../components/Section/Section";
@@ -7,19 +8,23 @@ import { services } from "../../mocks/services";
 import classes from "./Home.module.css";
 
 export default function HomePage() {
+  const { account } = useAccount();
+
   return (
     <>
       <Banner className={classes.banner} />
 
-      <Section
-        heading={
-          <Title noMargin gradient>
-            Your subscriptions
-          </Title>
-        }
-      >
-        <Subscription service={services[0]} noManage />
-      </Section>
+      {account.address && (
+        <Section
+          heading={
+            <Title noMargin gradient>
+              Your subscriptions
+            </Title>
+          }
+        >
+          <Subscription service={services[0]} noManage />
+        </Section>
+      )}
 
       <Section hasMore heading={<Title noMargin>Our recommendations</Title>}>
         <Subscription service={services[0]} noManage />
