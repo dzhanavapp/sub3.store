@@ -12,7 +12,6 @@ export default function HomePage() {
       <Banner className={classes.banner} />
 
       <Section
-        hasMore
         heading={
           <Title noMargin gradient>
             Your subscriptions
@@ -20,13 +19,11 @@ export default function HomePage() {
         }
       >
         <Subscription service={services[0]} noManage />
-        <Subscription service={services[0]} noManage />
-        <Subscription service={services[0]} noManage />
       </Section>
 
       <Section hasMore heading={<Title noMargin>Our recommendations</Title>}>
         <Subscription service={services[0]} noManage />
-        <Subscription service={services[0]} noManage />
+        <Subscription service={services[1]} noManage />
         <Subscription service={services[0]} noManage />
       </Section>
 

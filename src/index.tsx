@@ -5,6 +5,7 @@ import { ConfigOptions } from "@web3modal/core";
 
 import App from "./App";
 import "./index.css";
+import { chains } from "@web3modal/ethereum";
 
 const config: ConfigOptions = {
   projectId: "7e1f6fbac36705a5c94e68e2a19da660",
@@ -13,6 +14,7 @@ const config: ConfigOptions = {
   ethereum: {
     appName: "sub3",
     autoConnect: true,
+    chains: [chains.polygonMumbai],
   },
 };
 

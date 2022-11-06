@@ -13,10 +13,10 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="account" element={<AccountPage />} />
 
+          <Route path="service/:id" element={<ServicePage />} />
           <Route path="*" element={<h1>Error 404</h1>} />
         </Route>
 
-        <Route path="service/:id" element={<ServicePage />} />
         <Route path="article/:id" element={<ArticlePage />} />
       </Routes>
     </BrowserRouter>

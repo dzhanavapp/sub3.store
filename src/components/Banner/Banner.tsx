@@ -14,8 +14,6 @@ const SmallSphere = () => {
 type Props = HTMLAttributes<HTMLDivElement>;
 
 const Banner: FC<Props> = ({ className }) => {
-  console.log(window.history);
-
   return (
     <div className={clsx(classes.banner, className)}>
       <span className={classes.text}>
