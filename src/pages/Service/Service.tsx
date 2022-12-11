@@ -23,12 +23,16 @@ import { useEffect } from "react";
 import Web3 from "web3";
 import useSubContract from "../../hooks/useSubContract";
 import { BASE_TOKEN } from "../../mocks/tokens";
+import clsx from "clsx";
+import { services } from "../../mocks/services";
 const ERC20_TOKEN = "0xd393b1E02dA9831Ff419e22eA105aAe4c47E1253";
 
 const Service = () => {
   const { id } = useParams();
 
   const { addSubscription } = useSubContract();
+
+  const service = services[Number(id)];
 
   // const config = {
   //   address: ERC20_TOKEN,
@@ -39,11 +43,9 @@ const Service = () => {
   // const { data, error, isLoading, refetch } = useContractRead(config);
 
   const handleBuy = () => {
-    console.log("buy");
-
     if (!addSubscription) return;
     addSubscription(
-      "0x894899a494809e31bb94b76392CA1CD1b4cA0993",
+      service.address,
       1000000000,
       7 * 24 * 60 * 60,
       ERC20_TOKEN
@@ -63,30 +65,39 @@ const Service = () => {
             objectFit: "cover",
             borderRadius: 16,
           }}
-          src="https://s3-alpha-sig.figma.com/img/b492/4738/bdf020eddba621ee262f82f8f60915f9?Expires=1668384000&Signature=T6S~4jxE0Ynv36LUj~tLV1LbqGONll8jW6y~zYcXn3c6HZOemr66KGra7KLDgHvphZd1M~vblFVTqmomX7ZTbR~wggJfmJszgUoQceu-AOf6MCKycmeblzyrMi-e-ifZ1DSql15tU~ZiiltErvmHw2CLbN5DeQIkRnvUVlf5tJUOwTP~CPsm3bOhpWw2R7wn-OAXUXuRyx4U0KcCFmBfMIxk6buc5PcixYPaHyTATrmJJnSXzp1xnpd7~5jvMx2pfJmF2hMYialTjq0ilzLm0WTbw3aK6ZB5wmw9ZdL8KKK3dBjMoxFRMTFiLGkyYJCvcx~DWhrZQkI3pcPvFGEctw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+          src="https://images.unsplash.com/photo-1639322537504-6427a16b0a28?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80"
           alt=""
         />
 
         <div className={classes.content}>
           <div className={classes.details}>
             <div className={classes.detailsHead}>
-              <div className={classes.detailsHeadCol}>
+              <div
+                className={clsx(
+                  classes.detailsHeadCol,
+                  classes.detailsHeadColInfo
+                )}
+              >
                 <h5 className={classes.detailsSubTitle}>✌️ #crypto_exchange</h5>
-                <h2 className={classes.detailsTitle}>
-                  Binance exchange crypto app
-                </h2>
-                <p className={classes.detailsInfo}>
-                  Andromeda Nebula would appear in the sky as large as a third
-                  of the bucket. Obviously, the connection significantly
-                  attracts the rotational equator.
-                </p>
+                <h2 className={classes.detailsTitle}>{service.name}</h2>
+                <p className={classes.detailsInfo}>{service.description}</p>
               </div>
 
-              <div className={classes.detailsHeadCol}>
+              <div
+                className={clsx(
+                  classes.detailsHeadCol,
+                  classes.detailsHeadColAction
+                )}
+              >
                 <Button onClick={handleBuy} className={classes.detailsHeadBtn}>
-                  Buy a 2.99$
+                  Sub a 2.99$
                 </Button>
-                <Button className={classes.detailsHeadBtn}>Link service</Button>
+
+                <a href={service.link} target="_blank" rel="noreferrer">
+                  <Button className={classes.detailsHeadBtn}>
+                    Link service
+                  </Button>
+                </a>
               </div>
             </div>
 
@@ -105,34 +116,17 @@ const Service = () => {
                 slidesPerView={3}
                 className={classes.detailsSlider}
               >
-                <SwiperSlide className={classes.detailsSlide}>
-                  <img
-                    src="https://s3-alpha-sig.figma.com/img/b10e/0bbd/f8cc7966eaaccabb04b8bad2e5fd83d8?Expires=1668384000&Signature=WQt9Lmnj2LThqiOoJcW~rNv2f4nbjme-AgNvPeVaSbTPjR8zxrPkKe8w8O1Ol2OMTKKE2ZWzF8ps5ffqxzzZOXCYoEnet-jJluy1-CEg6SxRZh~FGXJquFvb4zINI9NOp782zYTzoMvVVISHpUgUQk3jIq2A09wS5Nj-Dst5QxK88tw3aRe2J34JE4JHwtNcSmK5NlSx8dPU-ybi5YMQEaXvNkLcVOmdj8G6gC04yw0sKDznLCWIu7S7QlqcWmYuMoJLNXEiZWYmACDN1NY-xKpBW-IGAWMDMpW8exUp5sp532-3acEdEgiPxj18tEyBqk9ixkHGjt3YRL3ZLu-Spg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                    alt=""
-                    className={classes.detailsSlideImg}
-                  />
-                </SwiperSlide>
-                <SwiperSlide className={classes.detailsSlide}>
-                  <img
-                    src="https://s3-alpha-sig.figma.com/img/deb7/8763/c1fe22379629a4a4a40c90e712762c4d?Expires=1668384000&Signature=fC29Rk~hQKqK2QXQBkOOYiEwjrnIin5G7o0-tGC0yMdoWC6MiGk-yfPb5KtvdzAqOo4r51P9pOVMHwUiman4rLomEJzSfQduGs-kpPkcYmc6V5QbT98OxLLIJijMdcwwy8gVWdG11rwebgiQgIZjkfU811MJ57Jn~x4xnuMC14eeHCDwJ0YkN0rcSujF~XE~ppEajWRDY4Tb4A7yhmwScYBJ-J0revBshMhJcTg1e5VtkWHfJmnf15OIemglAVNu3rlitHTPdIbKJwUaV5wMSVMky9pJy793azUj0V75RcNUhDiVMCZckhCQrWS2i4yczepaRJQ45Hr7MxnXz-7NIg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                    alt=""
-                    className={classes.detailsSlideImg}
-                  />
-                </SwiperSlide>
-                <SwiperSlide className={classes.detailsSlide}>
-                  <img
-                    src="https://s3-alpha-sig.figma.com/img/1746/cd8e/708293ab78d5abd52867962cfa280a1e?Expires=1668384000&Signature=Kr8M606KG362TUBhAaxyAXAymbYrQS3c8d2AgmCw8OSPqXtAI5eUeGMAIIDG7q9y45LIFiUzJTyVTdYuaAPVcfCxSDprvcnycWupqFMvj2shb2zDH3LX4cEWYQM6KABn8Wmz0waI4VeyYstvhshPh12VQJR7YFBvzNUOhKdoCcd-ChLe-PNRXZ~xUS~DnZ8zy8R4W-NwzSNM6BqJH~IwUSJJvJml7k-lOKXHp0sJ5OvICzP~vatSd4n63ETGkWPmmVVu2EkF1wcM0JMPAFS6mAq~ZWexCMmnYuXuUoHcoe-jQu0eozO6Re~wVTyTYPRCdgMp61bHqvKAnbBKjta0eg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                    alt=""
-                    className={classes.detailsSlideImg}
-                  />
-                </SwiperSlide>
-                <SwiperSlide className={classes.detailsSlide}>
-                  <img
-                    src="https://s3-alpha-sig.figma.com/img/0e7d/231e/bd07da9c9ee9a553a87fa6cfaf9cc18f?Expires=1668384000&Signature=SR6eLOhnJUb74ClhLSsGTGmJCZMrwTRTM0ozoJWVWX7ihU7Y7vvwxx5Bm0EMB30yX5g9LsdlTbgb3MAj~OZc6BiXvphkhzUh~udL-43wXqdI03KXzLg6YgXpdfkyqf9ZkWyAd5I46OgkTpahHL0SNrcbyogWu5oRKBZuBmmoipPWqGg~~T47Sk6rEcLmfiZZAGTWHJeeKZZJGB0hdfD67ArMYJ~rWr4CW5ikreD6m3Y4o0qbhjTf6fgr9Ka9hAkBeSTigaPWsUVix7YUenkpoZ2mjRPgGU3uWlfkZf1gxRwQruuNChyviAU5EV6wShxlzC4bexMG3~1TGteUofXMJw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                    alt=""
-                    className={classes.detailsSlideImg}
-                  />
-                </SwiperSlide>
+                {service.images.map((image) => {
+                  return (
+                    <SwiperSlide className={classes.detailsSlide}>
+                      <img
+                        src={image}
+                        alt=""
+                        className={classes.detailsSlideImg}
+                      />
+                    </SwiperSlide>
+                  );
+                })}
               </Swiper>
             </div>
 
@@ -140,30 +134,7 @@ const Service = () => {
               <div className={classes.SubInfoTitle}>Details</div>
 
               <div className={classes.SubInfoTextWrapper}>
-                <div className={classes.SubInfoText}>
-                  After the topic is formulated, the magnetic field crosses out
-                  the original parameter. Interstellar matter, estimating the
-                  brilliance of an illuminated metal ball, chooses a random
-                  perturbing factor. Zenith crosses out the random equator. The
-                  reddish star, subliming from the surface of the comet's
-                  nucleus, represents the hour angle, although for those with
-                  telescope eyes the Andromeda Nebula would appear in the sky as
-                  large as a third of the Ursa Major bucket. Obviously, the
-                  connection significantly attracts the rotational equator.
-                </div>
-
-                <div className={classes.SubInfoText}>
-                  Andromeda Nebula would appear in the sky as large as a third
-                  of the Ursa Major bucket. Obviously, the connection
-                  significantly attracts the rotational equator.
-                </div>
-
-                <div className={classes.SubInfoText}>
-                  The reddish star, subliming from the surface of the comet's
-                  nucleus, represents the hour angle, although for those with
-                  telescope eyes the Andromeda Nebula would appear in the sky as
-                  large as a third of the Ursa Major bucket.
-                </div>
+                <div className={classes.SubInfoText}>{service.details}</div>
               </div>
             </div>
           </div>

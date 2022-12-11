@@ -9,15 +9,22 @@
 }
 
 .image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.imageWrapper {
   height: 100vh;
   width: 45%;
-  object-fit: cover;
   position: sticky;
   top: 0;
+  flex: 1;
 }
 
 .content {
   padding: 36px 32px;
+  flex: 1.3;
 }
 
 @media screen and (max-width: 800px) {
@@ -25,9 +32,10 @@
     flex-direction: column;
   }
 
-  .image {
+  .imageWrapper {
     height: 500px;
     width: 100%;
     position: static;
+    top: 0;
   }
 }

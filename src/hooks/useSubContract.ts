@@ -71,5 +71,5 @@ export default function useSubContract() {
     });
   }, []);
 
-  return subscitinManager;
+  return subscitinManager as SubscribeManager;
 }

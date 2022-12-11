@@ -1,13 +1,24 @@
 import Layout from "./components/Layout/Layout";
 import HomePage from "./pages/Home/Home";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, useLocation } from "react-router-dom";
 import AccountPage from "./pages/Account/Account";
 import ServicePage from "./pages/Service/Service";
 import ArticlePage from "./pages/Article/Article";
+import { FC, useLayoutEffect } from "react";
+
+const ScrollToTop: FC = () => {
+  const location = useLocation();
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  return <></>;
+};
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />

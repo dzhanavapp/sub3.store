@@ -21,30 +21,32 @@ export default function AccountPage() {
   } = useSubContract();
 
   useEffect(() => {
-    if (
-      getSubscriptionByAddressStart &&
-      getSubscriptionByAddress &&
-      !subsciptions.length
-    ) {
+    if (isReady && !subsciptions.length) {
       getSubscriptionByAddressStart().then(async (serviceAddress: string) => {
         if (serviceAddress === NULL_ADDRESS) {
           return setEmpty(true);
         }
 
+        setSubsciptions(() => []);
+
         let nextServiceAddress = serviceAddress;
 
-        while (nextServiceAddress !== NULL_ADDRESS) {
-          const subscription = await getSubscriptionByAddress(serviceAddress);
+        while (
+          nextServiceAddress.toLocaleLowerCase() !== NULL_ADDRESS.toLowerCase()
+        ) {
+          const subscription = await getSubscriptionByAddress(
+            nextServiceAddress
+          );
           setSubsciptions((s) => [...s, subscription]);
           nextServiceAddress = subscription.nextPayee as string;
         }
       });
     }
-  }, [getSubscriptionByAddressStart, getSubscriptionByAddress]);
+  }, [isReady]);
+
+  console.log(subsciptions, "subsciptions");
 
   if (!isReady) return <h3>Loading...</h3>;
-
-  console.log(contract, "ccc");
 
   if (empty) {
     return (
@@ -73,6 +75,7 @@ export default function AccountPage() {
       <div className={classes.grid}>
         {subsciptions.map((p) => {
           const service = serviceMap[p.payee];
+          if (!service) return null;
           return <Subscription key={service.id} service={service} />;
         })}
       </div>

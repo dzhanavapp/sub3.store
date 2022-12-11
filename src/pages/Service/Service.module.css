@@ -60,6 +60,24 @@
 .detailsHead {
   display: flex;
 }
+.detailsHeadCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailsHeadColAction {
+  width: max-content;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.detailsHeadColInfo {
+  flex: 1;
+}
 
 .detailsSubTitle {
   margin: 0;
@@ -73,7 +91,7 @@
 }
 
 .detailsTitle {
-  margin: 16px 0 0 0;
+  margin: 32px 0 12px 0;
 
   font-weight: 500;
   font-size: 40px;
@@ -84,7 +102,7 @@
 }
 
 .detailsInfo {
-  margin: 36px 0 0 0;
+  margin: 0;
 
   font-style: normal;
   font-weight: 400;
@@ -93,22 +111,6 @@
   letter-spacing: -0.01em;
 
   color: var(--text-light);
-}
-
-.detailsHeadCol {
-  width: 680px;
-
-  display: flex;
-  flex-direction: column;
-}
-
-.detailsHeadCol:nth-child(2) {
-  display: flex;
-  flex-direction: row;
-
-  justify-content: flex-end;
-  align-items: flex-start;
-  gap: 24px;
 }
 
 .detailsHeadBtn {
@@ -125,7 +127,6 @@
 .detailsSliderWrapper {
   margin-top: 20px;
   width: 100%;
-  height: 330px;
 
   display: flex;
   flex-direction: column;
@@ -208,4 +209,31 @@
   letter-spacing: -0.01em;
 
   color: var(--text-soft);
+}
+
+@media screen and (max-width: 1000px) {
+  .detailsHead {
+    flex-direction: column;
+  }
+
+  .detailsHeadColAction {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 24px;
+    margin-bottom: 42px;
+  }
+
+  .detailsHeadColAction > * {
+    flex: 1;
+  }
+
+  .SubInfo {
+    flex-direction: column;
+  }
+
+  .SubInfoTextWrapper {
+    width: unset;
+  }
 }
